@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="<%= fontURL %>">
+    <link rel="stylesheet" href="<%= css %>">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <h3><%= subtitle %></h3>
+    <hr />
+        <p>Add a new product:</p>
+        <form action="/admin" method="POST">
+            <label for="id">ID: </label>
+            <select type="number" name="id" id="id">
+                <% products.forEach(function (product, index) { %>
+                    <% if (!product.productname) { %>
+                        <% index += 1; %>
+                    <option value="<%= index %>"><%= index %></option>
+                    <% } %>
+                <% }); %>
+            </select><br />
+            
+            <!-- <input type="number" name="id" id="id"> -->
+            <label for="productname">Product name: </label><input type="text" name="productname" id="productname"><br />
+            <label for="price">Price: </label><input type="number" name="price" id="price"><br />
+            <button type="submit">Add</button>
+        </form>
+    <hr />
+    <% if (products.some(filled = (element) => element.length !== 0)) { %>
+        <% products.forEach(function (product, index) { %>
+            <% if (product.productname) { %>
+            <div class="product">
+                <div class="productdata"><p>Product name: <%= products[index].productname %></p>
+                    <p>Price: <%= products[index].price %> SEK</p>
+                    <p>ID: <%= products[index].id %></p></div>
+                <div class="productoptions">
+                    <a href="/updateproduct/<%= products[index].id %>">Edit product</a><span>&nbsp;</span>
+                    <a href="/deleteproduct/<%= products[index].id %>">Delete product</a>
+                </div>
+            </div>
+        <% } %>
+    <% }); %>
+    <% } else { %>
+        <p>There is no product to display.</p>
+    <% } %>
+    <hr />
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+</body>
+</html>

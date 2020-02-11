@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="<%= fontURL %>">
+    <link rel="stylesheet" href="<%= css %>">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <hr />
+    <% if (products.some(filled = (element) => element.length !== 0)) { %>
+    <% products.forEach(function (product, index) { %>
+        <% if (product.productname) { %>
+        <div class="product">
+            <p>Product name: <%= products[index].productname %></p>
+            <p>Price: <%= products[index].price %> SEK</p>
+            <p>ID: <%= products[index].id %></p>
+        </div>
+        <% } else { %>
+            <% console.log(`no product to display at index ${index}`); %>
+        <% } %>
+    <% }); %>
+    <% } else { %>
+        <p>There is no product to display.</p>
+    <% } %>
+    <hr />
+    <nav>
+        <a href="/admin">Admin page</a><br />
+    </nav>
+    
+</body>
+</html>

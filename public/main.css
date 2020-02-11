@@ -1,0 +1,69 @@
+body {
+    font-size: 1.25em;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+label, input {
+    margin-bottom: 5px;
+}
+
+p {
+    margin-top: 5px;
+}
+
+h1 {
+padding-left: 5px;
+padding-bottom: 7.5px;
+margin-bottom: 0px;
+color: darkorange;
+/* background: #b8b8b8; */
+text-shadow: 2px 2px 0 #7A7A7A;
+}
+
+h3 {
+    margin-top: 7.5px;
+    margin-bottom: 5px;
+}
+
+.product {
+    border: 1px solid grey;
+    background-color: lightyellow;
+    width: 50%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+.product p {
+    margin: 2px 0px;
+}
+
+/* Styled Delete button */
+
+.styled {
+    border: 0;
+    line-height: 2.5;
+    margin-top: 10px;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}

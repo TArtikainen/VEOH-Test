@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="<%= fontURL %>">
+    <link rel="stylesheet" href="<%= css %>">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <h3><%= subtitle %></h3>
+    <hr />
+        <p><em>Are you sure that you want to delete the following product?</em></p>
+        <div class="product">
+            <div class="productdata"><p>Product name: <%= product.productname %></p>
+                <p>Price: <%= product.price %> SEK</p>
+                <p>ID: <%= product.id %></p></div>
+        </div>
+        <div class="productoptions">
+            <form action="/deleteproduct-confirmed/<%= product.id %>" method="POST">
+                <button type="submit" class="styled">Confirm</button>
+            </form>
+        </div>
+    <hr />
+    <nav>
+        <a href="/">Home</a><br />
+        <a href="/admin">Admin page</a>
+    </nav>
+</body>
+</html>

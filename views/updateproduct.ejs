@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="<%= fontURL %>">
+    <link rel="stylesheet" href="<%= css %>">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <h3><%= subtitle %></h3>
+    <hr />
+        <p>Edit the product:</p>
+        <form action="/updateproduct/<%= product.id %>" method="POST">
+            <label for="id">ID: </label>
+            <select type="number" name="id" id="id">
+                <option value="<%= product.id %>"><%= product.id %></option>
+                <% products.forEach(function (product, index) { %>
+                    <% if (!product.productname) { %>
+                        <% index += 1; %>
+                    <option value="<%= index %>"><%= index %></option>
+                    <% } %>
+                <% }); %>
+            </select><br />
+            <label for="productname">Product name: </label><input type="text" name="productname" id="productname" value="<%= product.productname %>"><br />
+            <label for="price">Price: </label><input type="number" name="price" id="price" value="<%= product.price %>"><br />
+            <button type="submit">Update</button>
+        </form>
+    <hr />
+    <nav>
+        <a href="/">Home</a><br />
+        <a href="/admin">Admin page</a>
+    </nav>
+</body>
+</html>
